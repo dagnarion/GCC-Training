@@ -2,16 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeAttack : MonoBehaviour
+public class MeleeAttack : PlayerAbstract
 {
     [SerializeField] float force;
     IAttackable enemy;
 
-    void Update()
+    void OnEnable()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && enemy != null)
+        playerReference.Controller.onAttackPressed += Attack;
+    }
+
+    void OnDisable()
+    {
+        playerReference.Controller.onAttackPressed -= Attack;
+    }
+
+    void Attack()
+    {
+        if (enemy != null)
         {
-            enemy.TakeForce(force, new Vector2(-transform.localScale.x, Vector2.up.y));
+            enemy.TakeForce(force, new Vector2(-transform.localScale.x, 0.5f));
         }
     }
 
@@ -19,12 +29,12 @@ public class MeleeAttack : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision == null) return;
-        enemy = collision.GetComponent<IAttackable>();
+        collision.TryGetComponent<IAttackable>(out enemy);
     }
 
     // xóa ref đến object đang bị tác động
     void OnTriggerExit2D(Collider2D collision)
     {
-        if(enemy!=null) enemy = null;
+        if (enemy != null) enemy = null;
     }
 }
