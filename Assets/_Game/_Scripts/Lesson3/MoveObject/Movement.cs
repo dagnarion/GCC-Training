@@ -56,7 +56,7 @@ public class Movement : MonoBehaviour
     {
         currentMode++;
         if ((int)currentMode >= moveModeCount)
-        {
+        {   
             currentMode = 0;
         }
         Debug.Log("Move By: " + currentMode.ToString());
