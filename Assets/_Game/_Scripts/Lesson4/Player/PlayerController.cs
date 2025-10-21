@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator AttackCoroutine()
     {
         currentState = State.attack;
-        animator.SetTrigger("Attack");
+        animator.SetTrigger(CONSTANT.PlayerAttack);
         onAttackPressed?.Invoke();
         yield return new WaitForSeconds(attackDuration);
         currentState = State.moving;
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
             horizontalVelocity = Mathf.Lerp(horizontalVelocity, moveSpeed * moveFlag, Time.fixedDeltaTime * acceleration);
         }
         else horizontalVelocity = Mathf.Lerp(horizontalVelocity, 0, deceleration * Time.fixedDeltaTime);
-        animator.SetFloat("MoveProgress", Mathf.InverseLerp(0, moveSpeed, Mathf.Abs(horizontalVelocity)));
+        animator.SetFloat(CONSTANT.PlayerMoving, Mathf.InverseLerp(0, moveSpeed, Mathf.Abs(horizontalVelocity)));
         ChangeDirection();
         SetVelocity();
     }

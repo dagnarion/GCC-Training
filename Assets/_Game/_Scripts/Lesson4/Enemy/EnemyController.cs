@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour, IAttackable
     Rigidbody2D rigi;
     Animator animator;
     CircleCollider2D checkCollider;
-    public static event Action onPlayerEnter;
+    public event Action onPlayerEnter;
     float takeDameDelay = 0.2f;
     float takeDameTimer;
     void Awake()
@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour, IAttackable
     // Check xem player đã đi vào vùng hiện chatBox hay chưa
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player")) return;
+        if (!collision.CompareTag(CONSTANT.PlayerTag)) return;
         StartCoroutine(TalkDone());
         onPlayerEnter?.Invoke();
     }
@@ -46,7 +46,7 @@ public class EnemyController : MonoBehaviour, IAttackable
     {
         if (takeDameTimer <= 0)
         {
-            if(rigi.isKinematic == false) animator.SetTrigger("Hit");
+            if(rigi.isKinematic == false) animator.SetTrigger(CONSTANT.EnemyHit);
             rigi.AddForce(Direction * force);
             takeDameTimer = takeDameDelay;
         }

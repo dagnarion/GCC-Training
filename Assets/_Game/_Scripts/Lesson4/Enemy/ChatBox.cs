@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class ChatBox : MonoBehaviour
 {
+    [SerializeField] EnemyReferenceManager enemyReference;
     SpriteRenderer sprite;
 
     void Awake()
     {
         sprite = this.GetComponent<SpriteRenderer>();
+        enemyReference = this.GetComponentInParent<EnemyReferenceManager>();
     }
 
     void OnEnable()
     {
-        EnemyController.onPlayerEnter += CallChatBox;
+        enemyReference.enemyController.onPlayerEnter += CallChatBox;
     }
-
+    
     void CallChatBox()
     {
         StartCoroutine(ChatBoxActive());
