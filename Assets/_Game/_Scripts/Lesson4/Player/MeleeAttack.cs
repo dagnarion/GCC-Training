@@ -19,10 +19,7 @@ public class MeleeAttack : PlayerAbstract
 
     void Attack()
     {
-        if (enemy != null)
-        {
-            enemy.TakeForce(force, new Vector2(-transform.localScale.x, 0.5f));
-        }
+      // tat collider
     }
 
     // kiểm tra xem object mà vùng tấn công cast được có phải là object cho phép tấn công không
@@ -30,11 +27,11 @@ public class MeleeAttack : PlayerAbstract
     {
         if (collision == null) return;
         collision.TryGetComponent<IAttackable>(out enemy);
+        if (enemy != null)
+        {
+            enemy.TakeForce(force, new Vector2(-transform.localScale.x, 0.5f));
+        }
+        enemy = null;
     }
 
-    // xóa ref đến object đang bị tác động
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if (enemy != null) enemy = null;
-    }
 }
