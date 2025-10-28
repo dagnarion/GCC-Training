@@ -9,3 +9,4 @@ public interface IHealth
     void Detuct(int amount);
     bool isAlive();
 }
+// em chưa apply hệ thống attack cho player và enemy :> hẹ
