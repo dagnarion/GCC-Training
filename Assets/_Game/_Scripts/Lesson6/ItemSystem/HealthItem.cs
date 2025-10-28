@@ -14,6 +14,7 @@ public class HealthItem : MonoBehaviour, IItem
     {
         if (player == null) { Debug.Log("Not had PlayerInformation yet in "+this.gameObject.name); return; }
         player.GetComponent<PlayerHealth>().Add(healthAmount);
+        Debug.Log(this.gameObject.name + " Had Been Collected by " + player.name);
         this.gameObject.SetActive(false);
     }
 }

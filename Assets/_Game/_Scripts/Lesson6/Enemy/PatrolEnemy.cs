@@ -8,7 +8,7 @@ public class PatrolEnemy : EnemyBase
     int currentPoint;
     void Start()
     {
-        SetValue(2, 10, 2);
+        SetValue(2, 10,1, 2);
     }
     void Update()
     {

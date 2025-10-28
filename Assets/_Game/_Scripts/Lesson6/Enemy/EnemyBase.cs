@@ -6,13 +6,17 @@ public abstract class EnemyBase : MonoBehaviour
 {
     [SerializeField] protected Rigidbody2D rigi;
     protected float speed;
-    protected float health;
+    protected float maxHp;
     protected float damage;
-    protected void SetValue(float _speed, float _health, float _damage)
+    protected float baseHp;
+    public float MaxHp => maxHp;
+    public float BaseHp => baseHp;
+    protected void SetValue(float _speed, float _maxHp,float _baseHp, float _damage)
     {
         speed = _speed;
-        health = _health;
+        maxHp = _maxHp;
         damage = _damage;
+        baseHp = _baseHp;
     }
     protected virtual void ChangeDirection(Vector3 point)
     {

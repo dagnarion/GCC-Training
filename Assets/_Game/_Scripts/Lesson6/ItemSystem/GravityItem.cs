@@ -16,6 +16,7 @@ public class GravityItem : MonoBehaviour, IItem
     {
        if (player == null) { Debug.Log("Not had PlayerInformation yet in "+this.gameObject.name); return; }
         player.GetComponent<PlayerMovement>().AddBuff(this);
+        Debug.Log(this.gameObject.name + " Had Been Collected by " + player.name);
         this.gameObject.SetActive(false);
     }
 }

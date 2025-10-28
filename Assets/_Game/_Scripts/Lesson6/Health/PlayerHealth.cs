@@ -2,32 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour,IHealth
 {
-    [SerializeField] int currentHp;
+    int currentHp;
     [SerializeField] PlayerHealthDataSO health;
-
-    void Start()
+    void OnEnable()
     {
         Reborn();
     }
-
-    public void Reborn()
+    public virtual void Reborn()
     {
         currentHp = 1;
     }
 
-    public void Add(int amount)
+    public virtual void Add(int amount)
     {
         if (!isAlive()) return;
         currentHp = Mathf.Clamp(currentHp + amount, health.MinHp, health.MaxHp);
     }
 
-    public void Detuc(int amount)
+    public virtual void Detuct(int amount)
     {
         if (!isAlive()) return;
         currentHp -= amount;
     }
 
-    public bool isAlive() => currentHp > health.MinHp;
+    public virtual bool isAlive() => currentHp > health.MinHp;
 }

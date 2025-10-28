@@ -16,7 +16,7 @@ public class ChaseEnemy : EnemyBase
     [SerializeField] float delayTime;
     void Start()
     {
-        SetValue(1, 10, 5);
+        SetValue(1, 10, 1, 5);
         oldPosition = transform.position;
     }
     void Update()
