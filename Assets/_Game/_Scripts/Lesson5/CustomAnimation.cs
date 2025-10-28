@@ -82,6 +82,7 @@ public class CustomAnimation : MonoBehaviour
 
             yield return null;
         }
-
     }
+
+
 }
