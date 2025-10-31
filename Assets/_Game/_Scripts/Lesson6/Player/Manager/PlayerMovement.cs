@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] PlayerDataSO playerData;
-    [SerializeField] PlayerInputManager inputManager;
 
     [Header("CheckingArea")]
     [SerializeField] Collider2D coll;
@@ -30,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rigi = this.GetComponent<Rigidbody2D>();
         coll = this.GetComponent<Collider2D>();
-
     }
     void Update()
     {
@@ -49,9 +47,9 @@ public class PlayerMovement : MonoBehaviour
     {
         float horizontalVelocity = rigi.velocity.x, verticalVelocity = rigi.velocity.y;
 
-        if (inputManager.MoveDirection != 0)
+        if (InputManager.Instance.MoveDirection != 0)
         {
-            horizontalVelocity = Mathf.Lerp(horizontalVelocity, (maxSpeed + speedBuff) * inputManager.MoveDirection, acceleration * Time.deltaTime);
+            horizontalVelocity = Mathf.Lerp(horizontalVelocity, (maxSpeed + speedBuff) * InputManager.Instance.MoveDirection, acceleration * Time.deltaTime);
         }
         else horizontalVelocity = Mathf.Lerp(horizontalVelocity, 0, deceleration * Time.deltaTime);
 
@@ -78,13 +76,13 @@ public class PlayerMovement : MonoBehaviour
     }
     void ChangeDirection()
     {
-        if (inputManager.MoveDirection > 0 && !isFacingRight)
+        if (InputManager.Instance.MoveDirection > 0 && !isFacingRight)
         {
             isFacingRight = true;
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
-        if (isFacingRight && inputManager.MoveDirection < 0f)
+        if (isFacingRight && InputManager.Instance.MoveDirection < 0f)
         {
             isFacingRight = false;
             transform.rotation = Quaternion.Euler(0, 180, 0);

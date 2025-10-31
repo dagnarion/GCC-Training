@@ -17,7 +17,7 @@ public class PlayerJump : PlayerStateAbstract
             stateMachine.ChangeState<PlayerOnGround>();
             return;
         }
-        if (inputManager.IsJumpRelease || movement.IsJumpDone() || movement.IsOnWall || movement.IsBumpHead) { stateMachine.ChangeState<PlayerOnAir>(); return; }
+        if (InputManager.Instance.IsJumpRelease || movement.IsJumpDone() || movement.IsOnWall || movement.IsBumpHead) { stateMachine.ChangeState<PlayerOnAir>(); return; }
         
     }
 

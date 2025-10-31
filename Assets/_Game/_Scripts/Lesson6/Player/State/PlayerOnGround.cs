@@ -20,7 +20,7 @@ public class PlayerOnGround : PlayerStateAbstract
         }
         else Timer -= Time.deltaTime;
         if (Timer <= 0f) { stateMachine.ChangeState<PlayerOnAir>(); return; }
-        if (Timer > 0f && inputManager.IsJumpPress) { stateMachine.ChangeState<PlayerJump>(); return; }
+        if (Timer > 0f && InputManager.Instance.IsJumpPress) { stateMachine.ChangeState<PlayerJump>(); return; }
         movement.Move(playerData.MaxGroundMovingSpeed, playerData.GroundAcceleration,playerData.GroundDeceleration);
         ani.SetFloat(CONSTANT.PlayerMoving, movement.GroundMoveProgress);
     }

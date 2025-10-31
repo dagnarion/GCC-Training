@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInputManager : MonoBehaviour
+public class InputManager : Singleton<InputManager>
 {
    public float MoveDirection { get; private set; }
    public bool IsJumpPress { get; private set; }
    public bool IsJumpRelease { get; private set; }
-    public static event Action Attack;
+   public static event Action Attack;
+   public static event Action Pause;
     void Update()
     {
         Handle();
@@ -16,9 +17,14 @@ public class PlayerInputManager : MonoBehaviour
     
     void Handle()
     {
+        if (PauseMenu.Instance.IsGamePause) return;
         MoveDirection = Input.GetAxisRaw("Horizontal");
         IsJumpPress = Input.GetKeyDown(KeyCode.Space);
         IsJumpRelease = Input.GetKeyUp(KeyCode.Space);
         if (Input.GetKeyDown(KeyCode.J)) { Attack?.Invoke(); }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause?.Invoke();
+        }
     }
 }

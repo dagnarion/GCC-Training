@@ -6,11 +6,11 @@ public class PlayerMeleeAttack : MeleeAttack
 {
     void OnEnable()
     {
-        PlayerInputManager.Attack += Attack;
+        InputManager.Attack += Attack;
     }
     void OnDisable()
     {
-        PlayerInputManager.Attack -= Attack;
+        InputManager.Attack -= Attack;
     }
     public override void Attack()
     {
