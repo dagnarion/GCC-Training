@@ -952,8 +952,6 @@ GameObject:
   - component: {fileID: 1181524000}
   - component: {fileID: 1181523998}
   - component: {fileID: 1181523997}
-  - component: {fileID: 1181524001}
-  - component: {fileID: 1181524002}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -1051,30 +1049,6 @@ Transform:
   - {fileID: 1395008325}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1181524001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181523996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b8b11bb139caf447a44cab824329700, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1181524002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181523996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 606772459f2a3c844be02b2c065b146d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1395008323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,9 +1272,6 @@ GameObject:
   - component: {fileID: 1500009676}
   - component: {fileID: 1500009674}
   - component: {fileID: 1500009673}
-  - component: {fileID: 1500009678}
-  - component: {fileID: 1500009672}
-  - component: {fileID: 1500009677}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1308,21 +1279,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1500009672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500009671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3d7cefdbcfcca459b1d590804f82d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
-  acceleration: 7
-  deceleration: 5
 --- !u!50 &1500009673
 Rigidbody2D:
   serializedVersion: 4
@@ -1412,33 +1368,6 @@ Transform:
   - {fileID: 187061736}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1500009677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500009671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1851d8d6f8e19c644915b394c34e84e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 70
---- !u!114 &1500009678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500009671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f0f941fa0ddce7488bddb695d79080f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 1500009672}
-  playerMeleeAttack: {fileID: 1500009677}
 --- !u!1 &1768630804
 GameObject:
   m_ObjectHideFlags: 0
